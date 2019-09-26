@@ -2,13 +2,16 @@ package com.vivek.algorithm;
 
 public class BubbleSort {
     public static void main(String[] args) {
-        int[] intArr = {1, 4, 5, 2, 3};
+        int[] intArr = {7, 5, 3, 1, 2};
         System.out.println("Unsorted Array - ");
         display(intArr);
         System.out.println("Bubble Sort 1 - ");
         bubbleSortON2(intArr);
         System.out.println("Bubble Sort 2 - ");
         bubbleSortSavedIteration(intArr);
+        System.out.println("Recursive bubble sort - ");
+        bubbleSortRecursive(intArr, intArr.length);
+        display(intArr);
     }
 
     private static void bubbleSortON2(int[] intArr) {
@@ -51,5 +54,20 @@ public class BubbleSort {
         }
         System.out.println("Sorted Array - ");
         display(intArr);
+    }
+
+    public static void bubbleSortRecursive(int[] arr, int n) {
+        if (n == 1) {
+            return;
+        }
+        for (int i = 0; i < arr.length - 1; i++) {
+            if (arr[i] > arr[i + 1]) {
+                int temp = arr[i];
+                arr[i] = arr[i + 1];
+                arr[i + 1] = temp;
+            }
+        }
+//        display(arr);
+        bubbleSortRecursive(arr, n - 1);
     }
 }
