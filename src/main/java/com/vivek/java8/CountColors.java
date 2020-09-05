@@ -12,6 +12,8 @@ public class CountColors {
 
         List<String> colors = Arrays.asList("red", "yellow", "green", "red", "green", "red");
 
+        String xyz = "xyz";
+
         Map<String, Integer> countColors = new HashMap<>();
         colors.stream().forEach(x -> {
             if(!countColors.containsKey(x)){
