@@ -1,8 +1,5 @@
 package com.vivek.leetcode;
 
-import java.util.Iterator;
-import java.util.LinkedList;
-
 /**
  * You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order, and each of their nodes contains a single digit. Add the two numbers and return the sum as a linked list.
  *
@@ -29,29 +26,29 @@ import java.util.LinkedList;
 public class AddTwoNumbers {
     public static void main(String[] args) {
         //243
-        ListNode l1 = new ListNode(9, null);
-        ListNode l2 = new ListNode(9, l1);
-        ListNode l3 = new ListNode(9, l2);
-        ListNode l4 = new ListNode(9, l3);
-        ListNode l5 = new ListNode(9, l4);
-        ListNode l6 = new ListNode(9, l5);
-        ListNode l7 = new ListNode(9, l6);
+        ListNumberNode l1 = new ListNumberNode(9, null);
+        ListNumberNode l2 = new ListNumberNode(9, l1);
+        ListNumberNode l3 = new ListNumberNode(9, l2);
+        ListNumberNode l4 = new ListNumberNode(9, l3);
+        ListNumberNode l5 = new ListNumberNode(9, l4);
+        ListNumberNode l6 = new ListNumberNode(9, l5);
+        ListNumberNode l7 = new ListNumberNode(9, l6);
         //564
-        ListNode m1 = new ListNode(9, null);
-        ListNode m2 = new ListNode(9, m1);
-        ListNode m3 = new ListNode(9, m2);
-        ListNode m4 = new ListNode(9, m3);
-        ListNode result = addTwoNumbers(l7, m4);
+        ListNumberNode m1 = new ListNumberNode(9, null);
+        ListNumberNode m2 = new ListNumberNode(9, m1);
+        ListNumberNode m3 = new ListNumberNode(9, m2);
+        ListNumberNode m4 = new ListNumberNode(9, m3);
+        ListNumberNode result = addTwoNumbers(l7, m4);
         //708
     }
 
-    public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
+    public static ListNumberNode addTwoNumbers(ListNumberNode l1, ListNumberNode l2) {
         //1. iterate over first list node
         int nodeReminder = 0;
         int sum = 0;
-        ListNode result = null;
-        ListNode sumHead = new ListNode(sum, null);
-        ListNode sumHeadNext = new ListNode(nodeReminder, null);
+        ListNumberNode result = null;
+        ListNumberNode sumHead = new ListNumberNode(sum, null);
+        ListNumberNode sumHeadNext = new ListNumberNode(nodeReminder, null);
         while(l1 !=null || l2!=null){
             sum = 0;
             if(l1!=null) sum+= l1.val;
@@ -64,7 +61,7 @@ public class AddTwoNumbers {
 
             //5. iterate over from 1 and continue till longest number
             if(result != null) {
-                sumHeadNext = new ListNode(nodeVal, null); //create sum head node
+                sumHeadNext = new ListNumberNode(nodeVal, null); //create sum head node
                 sumHead.next = sumHeadNext;
                 sumHead = sumHeadNext;
             }else{
@@ -75,7 +72,7 @@ public class AddTwoNumbers {
             if(l2!=null) l2 = l2.next;
         }
         if(nodeReminder > 0){
-            ListNode sumHeadNextReminder = new ListNode(nodeReminder, null); //create sum head node
+            ListNumberNode sumHeadNextReminder = new ListNumberNode(nodeReminder, null); //create sum head node
             sumHead.next = sumHeadNextReminder;
         }
         return result;
@@ -83,10 +80,10 @@ public class AddTwoNumbers {
 
 }
 
-class ListNode{
+class ListNumberNode {
     int val;
-    ListNode next;
-    ListNode() {}
-    ListNode(int val) { this.val = val; }
-    ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+    ListNumberNode next;
+    ListNumberNode() {}
+    ListNumberNode(int val) { this.val = val; }
+    ListNumberNode(int val, ListNumberNode next) { this.val = val; this.next = next; }
 }
