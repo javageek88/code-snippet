@@ -21,17 +21,31 @@ import org.junit.Test;
 public class MultiPlyStringsTest {
 
     @Test
-    public void validateNegativeInteger(){
-        MultiPlyString multiplyString = new MultiPlyString();
-        boolean isValidInput = multiplyString.validateIntegerParams("-1", "isysh");
-        Assert.assertFalse(isValidInput);
-    }
-
-    @Test
     public void productOfTwoStringNumbers(){
         MultiPlyString multiplyString = new MultiPlyString();
         String result = multiplyString.productOfTwoNumbers("5", "4");
         Assert.assertEquals("20", result);
+    }
+
+    @Test
+    public void testMultiPlyMultiDigitStringNumbers(){
+        MultiPlyString multiplyString = new MultiPlyString();
+        String result = multiplyString.productOfTwoNumbers("10", "9");
+        Assert.assertEquals("90", result);
+    }
+
+    @Test
+    public void testMultiPlyMultiDigitStringNumbersOverFlowFail(){
+        MultiPlyString multiplyString = new MultiPlyString();
+        String result = multiplyString.productOfTwoNumbers("123", "456");
+        Assert.assertEquals("56088", result);
+    }
+
+    @Test
+    public void testMultiPlyMultiDigitStringNumbersOverFlow(){
+        MultiPlyString multiplyString = new MultiPlyString();
+        String result = multiplyString.productOfTwoNumbers("123456", "123456");
+        Assert.assertEquals("15241383936", result);
     }
 
 }
