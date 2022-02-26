@@ -32,7 +32,7 @@ public class Palindrom {
             while(i<j && !Character.isLetterOrDigit(input.charAt(j))){
                 j--;
             }
-            if(input.charAt(i) != input.charAt(j)){
+            if(Character.toLowerCase(input.charAt(i)) != Character.toLowerCase(input.charAt(j))){
                 return false;
             }
         }
